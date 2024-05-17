@@ -1,4 +1,6 @@
-import { app } from "../Config/Config";
+import { auth } from "../Config/Config";
+
+
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -12,7 +14,6 @@ import {
 
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-const auth = getAuth(app);
 
 export const creatuserbySignUp = () => {
 
@@ -52,6 +53,15 @@ export const userLogOut = ( ) =>
 
         console.error(error)
 })}
+
+export const getCurrentUser = async()=>{
+try {
+    const user = auth.currentUser;
+    return await user;
+} catch (error) {
+    
+}
+}
 
 
 
